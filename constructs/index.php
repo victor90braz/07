@@ -24,14 +24,17 @@ class Subscription {
     public function swap($newPlan) {
 
     }
+}
 
-        // behaviour class
-        protected function findStripeCostumer() {
+class BillableSubscription extends Subscription {
 
-        }
+    // behaviour class
+    protected function findStripeCostumer() {
 
-        // behaviour class
-        protected function findStripeSubscriptionByCostumer() {
+    }
 
-        }
+    // behaviour class
+    protected function findStripeSubscriptionByCostumer() {
+
+    }
 }
