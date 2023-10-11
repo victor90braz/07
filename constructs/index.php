@@ -18,6 +18,12 @@ require_once $basePath . "functions.php";
     }
 
     public function cancel() {
+
+        // Perform cancellation logic
+        $this->gateway->findCostumer();
+
+        // Find stripe subscription by customer
+        $this->gateway->findSubscriptionByCostumer();
     }
 
     public function invoice() {
@@ -47,3 +53,15 @@ class StripeGateWay implements GateWay {
     // behaviour class
     public function findSubscriptionByCostumer() {}
 }
+
+class BraintreeGateWay implements GateWay {
+
+    // behaviour class
+    public function findCostumer() {}
+
+    // behaviour class
+    public function findSubscriptionByCostumer() {}
+}
+
+new Subscription(new StripeGateWay());
+new Subscription(new BraintreeGateWay());
