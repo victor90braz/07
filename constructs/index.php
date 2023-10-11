@@ -21,6 +21,7 @@ class Subscription {
 
         // api request
         // find stripe costumer
+            $this->gateway->findStripeCostumer();
         // find stripe subscription by costumer
     }
 
