@@ -12,6 +12,9 @@ class Subscription {
 
     public function cancel() {
 
+        // api request
+        // find stripe costumer
+        // find stripe subscription by costumer
     }
 
     public function invoice() {
@@ -19,6 +22,14 @@ class Subscription {
     }
 
     public function swap($newPlan) {
+
+    }
+
+    public function findStripeCostumer() {
+
+    }
+
+    public function findStripeSubscriptionByCostumer() {
 
     }
 }
