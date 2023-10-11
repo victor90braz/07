@@ -25,13 +25,13 @@ class Subscription {
 
     }
 
-    // behaviour class
-    public function findStripeCostumer() {
+        // behaviour class
+        protected function findStripeCostumer() {
 
-    }
+        }
 
-    // behaviour class
-    public function findStripeSubscriptionByCostumer() {
+        // behaviour class
+        protected function findStripeSubscriptionByCostumer() {
 
-    }
+        }
 }
