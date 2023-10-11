@@ -6,23 +6,18 @@ require_once $basePath . "functions.php";
 
     class Subscription {
 
-    protected StripeGateWay $gateway;
+    protected GateWay $gateway;
 
-    public function __construct(StripeGateWay $gateway) {
+    public function __construct(GateWay $gateway) {
 
         $this->gateway = $gateway;
     }
 
-    public function cancel() {
-
-        // api request
-        // find stripe costumer
-            $this->gateway->findStripeCostumer();
-        // find stripe subscription by costumer
-    }
-
     public function create() {
 
+    }
+
+    public function cancel() {
     }
 
     public function invoice() {
@@ -34,15 +29,21 @@ require_once $basePath . "functions.php";
     }
 }
 
+interface GateWay {
+
+    // behaviour class
+    public function findStripeCostumer();
+
+    // behaviour class
+    public function findStripeSubscriptionByCostumer();
+
+}
+
 class StripeGateWay {
 
     // behaviour class
-    public function findStripeCostumer() {
-
-    }
+    public function findStripeCostumer() {}
 
     // behaviour class
-    public function findStripeSubscriptionByCostumer() {
-
-    }
+    public function findStripeSubscriptionByCostumer() {}
 }
