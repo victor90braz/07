@@ -6,6 +6,13 @@ require_once $basePath . "functions.php";
 
 class Subscription {
 
+    protected StripeGateWay $gateway;
+
+    public function __construct(StripeGateWay $gateway) {
+
+        $this->gateway = $gateway;
+    }
+
     public function create() {
 
     }
@@ -26,15 +33,15 @@ class Subscription {
     }
 }
 
-class BillableSubscription extends Subscription {
+class StripeGateWay {
 
     // behaviour class
-    protected function findStripeCostumer() {
+    public function findStripeCostumer() {
 
     }
 
     // behaviour class
-    protected function findStripeSubscriptionByCostumer() {
+    public function findStripeSubscriptionByCostumer() {
 
     }
 }
