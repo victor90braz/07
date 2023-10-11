@@ -25,10 +25,12 @@ class Subscription {
 
     }
 
+    // behaviour class
     public function findStripeCostumer() {
 
     }
 
+    // behaviour class
     public function findStripeSubscriptionByCostumer() {
 
     }
