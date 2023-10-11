@@ -4,7 +4,7 @@ require_once $basePath . "functions.php";
 
 // Object Composition and Abstractions
 
-class Subscription {
+    class Subscription {
 
     protected StripeGateWay $gateway;
 
@@ -13,16 +13,16 @@ class Subscription {
         $this->gateway = $gateway;
     }
 
-    public function create() {
-
-    }
-
     public function cancel() {
 
         // api request
         // find stripe costumer
             $this->gateway->findStripeCostumer();
         // find stripe subscription by costumer
+    }
+
+    public function create() {
+
     }
 
     public function invoice() {
