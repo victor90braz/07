@@ -32,18 +32,18 @@ require_once $basePath . "functions.php";
 interface GateWay {
 
     // behaviour class
-    public function findStripeCostumer();
+    public function findCostumer();
 
     // behaviour class
-    public function findStripeSubscriptionByCostumer();
+    public function findSubscriptionByCostumer();
 
 }
 
-class StripeGateWay {
+class StripeGateWay implements GateWay {
 
     // behaviour class
-    public function findStripeCostumer() {}
+    public function findCostumer() {}
 
     // behaviour class
-    public function findStripeSubscriptionByCostumer() {}
+    public function findSubscriptionByCostumer() {}
 }
