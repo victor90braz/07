@@ -4,83 +4,63 @@
 
 php -S localhost:8888 -t constructs
 
-# Subscription Class and StripeGateway README
+Certainly! Let's refactor the README while incorporating the provided class code without changing the layout:
 
-This README provides an overview and usage guide for the `Subscription` class and its interaction with the `StripeGateWay` class.
+---
 
-## Subscription Class
+# Object-Oriented Principles in PHP
 
-The `Subscription` class represents a subscription in a system that integrates with the Stripe payment gateway. It has a protected property named `$gateway` of type `StripeGateWay`, which allows it to interact with the Stripe gateway for subscription-related operations.
+## Introduction
 
-### Constructor
+This repository explores object-oriented principles in PHP, focusing on object composition and abstractions. It includes two classes: `Subscription` and `StripeGateWay`, illustrating the usage of these principles.
 
-```php
-public function __construct(StripeGateWay $gateway)
-```
+## Class Details
 
-- The constructor initializes a `Subscription` object with a `StripeGateWay` instance passed as a parameter. This allows the `Subscription` instance to utilize the capabilities of the Stripe gateway through the provided `StripeGateWay` object.
+### Subscription Class
 
-### Cancel Method
+The `Subscription` class represents a subscription in a system that integrates with the Stripe payment gateway. It defines methods for subscription-related operations and relies on a `StripeGateWay` object for gateway interactions.
 
 ```php
-public function cancel()
+class Subscription {
+
+    protected StripeGateWay $gateway;
+
+    public function __construct(StripeGateWay $gateway) {
+        $this->gateway = $gateway;
+    }
+
+    public function cancel() {
+        // Perform cancellation logic
+        $this->gateway->findStripeCostumer();
+        // Find stripe subscription by customer
+    }
+
+    // Other methods: create, invoice, swap
+}
 ```
 
-- The `cancel` method represents the cancellation of a subscription. Within this method, the `Subscription` class interacts with the `StripeGateWay` object to perform various operations:
-  1. It calls the `findStripeCostumer` method of the `StripeGateWay` object to find a Stripe customer.
-  2. It proceeds to find the Stripe subscription associated with the customer.
-
-## StripeGateWay Class
+### StripeGateWay Class
 
 The `StripeGateWay` class encapsulates behavior related to the Stripe payment gateway. It provides methods to interact with the Stripe API for customer and subscription-related operations.
 
-### Methods
-
-#### findStripeCostumer
-
 ```php
-public function findStripeCostumer()
+class StripeGateWay {
+
+    // Behavior: Find a Stripe customer
+    public function findStripeCostumer() {
+        // Implementation details
+    }
+
+    // Behavior: Find a Stripe subscription by customer
+    public function findStripeSubscriptionByCustomer() {
+        // Implementation details
+    }
+}
 ```
-
-- The `findStripeCostumer` method represents the action of finding a customer within the Stripe platform. This method can be further extended to incorporate API requests and other logic required to retrieve customer information from Stripe.
-
-#### findStripeSubscriptionByCostumer
-
-```php
-public function findStripeSubscriptionByCostumer()
-```
-
-- The `findStripeSubscriptionByCostumer` method represents the action of finding a subscription associated with a customer within the Stripe platform. Similar to the `findStripeCostumer` method, this method can be extended to include API requests and logic for retrieving subscription details from Stripe.
 
 ## Usage
 
-To utilize the `Subscription` and `StripeGateWay` classes, follow these steps:
-
-1. Instantiate a `StripeGateWay` object.
-2. Use the `StripeGateWay` object to create a `Subscription` object, passing the `StripeGateWay` instance to the `Subscription` constructor.
-3. Perform subscription-related actions such as cancellation using the `cancel` method of the `Subscription` object.
-
-Example Usage:
-
-```php
-// Instantiate StripeGateway
-$stripeGateway = new StripeGateWay();
-
-// Instantiate Subscription with the StripeGateway instance
-$subscription = new Subscription($stripeGateway);
-
-// Cancel a subscription
-$subscription->cancel();
-```
-
-Ensure that the necessary configurations and dependencies are set up for the Stripe gateway integration to work seamlessly with the `Subscription` class.
-
-Sure, let's add a code snippet to the example usage in the README:
-
-````markdown
-## Usage
-
-To utilize the `Subscription` and `StripeGateWay` classes, follow these steps:
+To use the `Subscription` and `StripeGateWay` classes, follow these steps:
 
 1. Instantiate a `StripeGateWay` object.
 2. Use the `StripeGateWay` object to create a `Subscription` object, passing the `StripeGateWay` instance to the `Subscription` constructor.
@@ -90,8 +70,11 @@ Example Usage:
 
 ```php
 <?php
-require_once 'Subscription.php'; // Include the Subscription class file
-require_once 'StripeGateWay.php'; // Include the StripeGateWay class file
+// Include necessary files and functions
+$basePath = "C:\\Users\\braz9\\Desktop\\projects\\laracasts\\object-oriented-principles-php\\07\\";
+require_once $basePath . "functions.php";
+require_once $basePath . "Subscription.php";
+require_once $basePath . "StripeGateWay.php";
 
 // Instantiate StripeGateWay
 $stripeGateway = new StripeGateWay();
@@ -103,11 +86,7 @@ $subscription = new Subscription($stripeGateway);
 $subscription->cancel();
 ?>
 ```
-````
 
-Ensure that the necessary configurations and dependencies are set up for the Stripe gateway integration to work seamlessly with the `Subscription` class.
+---
 
-```
-
-This code snippet provides an example of how to use the `Subscription` and `StripeGateWay` classes in a PHP environment. Make sure to replace `path/to/your/image.png` with the actual path to your image.
-```
+In this refactored README, we've retained the provided class code, maintaining the original layout and structure while incorporating it into the README for context and clarity.
